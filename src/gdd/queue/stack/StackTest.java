@@ -21,6 +21,7 @@ public class StackTest {
             System.out.println("exit 退出程序");
             System.out.println("请输入指令");
             String key = scanner.next();
+            System.out.println(1);
             switch (key) {
                 case "show":
                     stack.show();
