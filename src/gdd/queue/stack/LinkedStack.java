@@ -21,7 +21,7 @@ public class LinkedStack {
 
     public void push(int value) {
         StackNode temp = stack;
-        while (temp.getNext()!=null) {
+        while (temp.getNext() != null) {
             temp = temp.getNext();
         }
         StackNode node = new StackNode(value);
@@ -39,14 +39,14 @@ public class LinkedStack {
         //先找到最后一个节点的前一个节点
         StackNode temp = stack;
         while (true) {
-            if (temp.getNext()!=null) {
-                if (temp.getNext().getNext()==null) {
+            if (temp.getNext() != null) {
+                if (temp.getNext().getNext() == null) {
                     break;
                 }
             }
             temp = temp.getNext();
         }
-        System.out.printf("取出来的值为%d\n",temp.getNext().getNumber());
+        System.out.printf("取出来的值为%d\n", temp.getNext().getNumber());
         //滞空链表
         temp.setNext(null);
     }
@@ -63,30 +63,37 @@ public class LinkedStack {
         StackNode reversedHead = new StackNode(0);
         StackNode cur = stack.getNext();
         StackNode next = null;
-        while (cur.getNext()!=null) {
+        while (cur != null) {
             //获取当前节点的下一个节点
             next = cur.getNext();
+            /**
+             * 这一步应该反过来理解
+             * 因为 reversed节点的第一个节点永远是倒过来的第一个节点
+             * 所以 当前节点的下一个节点就应该是 reversedHead的下一个节点，
+             * 在第一次循环的时候 刚好 reversed的下一个节点是空的，作为反转节点很合适
+             */
             cur.setNext(reversedHead.getNext());
+            //当前节点的下一个节点拼成reversedHead 的节点时，下一步 就是讲 反转节点的下一个节点指向 当前节点
             reversedHead.setNext(cur);
             cur = next;
         }
-
         //遍历倒过来的节点
-        StackNode temp = reversedHead;
-        while (temp.getNext()!=null) {
-            System.out.printf("本次节点的内容为%d\n",temp.getNumber());
+        StackNode temp = reversedHead.getNext();
+        while (temp!= null) {
+            System.out.printf("本次节点的内容为%d\n", temp.getNumber());
             temp = temp.getNext();
         }
     }
 
     /**
      * 判断链表是否为空
+     *
      * @return
      */
     public boolean isEmpty() {
         if (stack.getNext() == null) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }
