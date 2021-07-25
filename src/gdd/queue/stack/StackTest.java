@@ -10,8 +10,8 @@ import java.util.Scanner;
 public class StackTest {
 
     public static void main(String[] args) {
-//        ArrayStack stack = new ArrayStack(4);
-        LinkedStack stack = new LinkedStack();
+        ArrayStack stack = new ArrayStack(4);
+//        LinkedStack stack = new LinkedStack();
         Scanner scanner = new Scanner(System.in);
         boolean lope = true;
         while (lope) {
@@ -42,9 +42,9 @@ public class StackTest {
                         System.out.println(e.getMessage());
                     }
                     break;
-                case "exit":
-                    lope = false;
-                    scanner.close();
+                case "exit":lope = false;
+                    scanner
+                    .close();
                     break;
             }
         }
