@@ -7,9 +7,6 @@ import java.util.regex.Pattern;
  **/
 public class Test {
     public static void main(String[] args) {
-        String str1 = "01\\02\\33";
-        Pattern pattern1 = Pattern.compile("^\\d+(\\\\\\d+)*$");
-        System.out.println(pattern1.matcher(str1).matches());
-
+        System.out.println(Math.random()*100);
     }
 }
